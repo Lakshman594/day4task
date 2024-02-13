@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button @click="handleClick">+</button>
+    <p >{{ count }}</p>
+    <button @click="handleClick1">-</button>
+
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { ref } from 'vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+const count = ref(0);
+
+function handleClick() {
+  
+  if(count.value <= 10 ){
+  count.value++;
+  }
+  else{
+    console.log("Limit is reached");
+  }
+}
+function handleClick1() {
+  
+  if(count.value >= 0){
+  count.value--;
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
